@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getFiltered, Search } from "./search";
 import { Results } from "./results";
 import { Item } from "./types";
+import "@picocss/pico";
 
 function App() {
   const [search, setSearch] = useState<string>("");
