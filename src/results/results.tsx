@@ -1,11 +1,16 @@
-export const Results = ({ results }: { results: any[] }) => {
+import { Item } from "../types";
+
+type Props = { results: Item[] };
+
+export const Results = ({ results }: Props) => {
   return (
     <ul>
-      {results.map((result: any) => {
+      {results.map((result) => {
+        const { title, content } = result;
         return (
-          <li key={result.title}>
-            <h3>{result.title}</h3>
-            <p>{result.content}</p>
+          <li key={title}>
+            <h3>{title}</h3>
+            <p>{content}</p>
           </li>
         );
       })}

@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import { getFiltered, Search } from "./search";
 import { Results } from "./results";
+import { Item } from "./types";
+
 function App() {
-  const [search, setSearch] = useState<string | null>(null);
-  const [results, setResults] = useState<any>(null);
+  const [search, setSearch] = useState<string>("");
+  const [results, setResults] = useState<Item[] | null>(null);
 
   useEffect(() => {
-    getFiltered(search ? search : "").then((res) => {
-      console.log(res);
+    getFiltered(search).then((res) => {
       setResults(res);
     });
   }, [search]);

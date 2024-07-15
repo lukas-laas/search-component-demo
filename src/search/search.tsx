@@ -1,10 +1,10 @@
 import { useState } from "react";
 
-export const Search = ({
-  setSearch,
-}: {
-  setSearch: React.Dispatch<React.SetStateAction<string | null>>;
-}) => {
+type Props = {
+  setSearch: React.Dispatch<React.SetStateAction<string>>;
+};
+
+export const Search = ({ setSearch }: Props) => {
   const [input, setInput] = useState("");
 
   return (

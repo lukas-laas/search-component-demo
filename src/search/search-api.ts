@@ -1,7 +1,4 @@
-type Item = {
-  title: string;
-  content: string;
-};
+import { Item } from "../types";
 
 const items: Item[] = [
   {
@@ -11,6 +8,10 @@ const items: Item[] = [
   {
     title: "Lorem",
     content: "ipsum dolor sit amet consectetur adipisicing elit. Odit, ipsa.",
+  },
+  {
+    title: "Brainstorm Brigade",
+    content: "Harald, Oriana, Lukas",
   },
 ];
 
