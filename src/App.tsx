@@ -8,6 +8,7 @@ function App() {
   const [search, setSearch] = useState<string>("");
   const [results, setResults] = useState<Item[] | null>(null);
 
+  //Fetches data on mount and every time state of search is updated
   useEffect(() => {
     getFiltered(search).then((res) => {
       setResults(res);
@@ -16,8 +17,8 @@ function App() {
 
   return (
     <>
-      <Search setSearch={setSearch}></Search>
-      {results && <Results results={results} />}
+      <Search setSearch={setSearch} />
+      <Results results={results} />
     </>
   );
 }

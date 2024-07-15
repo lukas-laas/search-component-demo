@@ -1,8 +1,10 @@
 import { Item } from "../types";
 
-type Props = { results: Item[] };
+type Props = { results: Item[] | null };
 
 export const Results = ({ results }: Props) => {
+  if (!results) return;
+
   return (
     <ul>
       {results.map((result) => {

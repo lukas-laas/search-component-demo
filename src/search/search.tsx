@@ -11,12 +11,14 @@ export const Search = ({ setSearch }: Props) => {
   return (
     <form
       onSubmit={(e) => {
+        //prevent reloading window
         e.preventDefault();
         setSearch(input);
       }}
     >
       <input
         type="text"
+        placeholder="Search"
         onChange={(e) => setInput(e.target.value)}
         className="search-input"
       />
