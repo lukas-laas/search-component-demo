@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { getFiltered } from "./search";
+import { getFiltered, Search } from "./search";
+import { Results } from "./results";
 function App() {
   const [search, setSearch] = useState<string | null>(null);
-  const [input, setInput] = useState("");
   const [results, setResults] = useState<any>(null);
 
   useEffect(() => {
@@ -14,27 +14,8 @@ function App() {
 
   return (
     <>
-      <form
-        action=""
-        onSubmit={(e) => {
-          e.preventDefault();
-          setSearch(input);
-        }}
-      >
-        <input type="text" onChange={(e) => setInput(e.target.value)} />
-        <button type="submit">Search</button>
-      </form>
-      <ul>
-        {results &&
-          results.map((result: any) => {
-            return (
-              <li key={result.title}>
-                <h3>{result.title}</h3>
-                <p>{result.content}</p>
-              </li>
-            );
-          })}
-      </ul>
+      <Search setSearch={setSearch}></Search>
+      {results && <Results results={results} />}
     </>
   );
 }
