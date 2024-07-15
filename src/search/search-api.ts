@@ -14,11 +14,8 @@ const items: Item[] = [
   },
 ];
 
-export const getFiltered = async (
-  filter: string,
-  setResults: { (value: any): void; (arg0: Item[]): void }
-) => {
-  setResults(
-    items.filter((item) => item.title.toLocaleLowerCase().includes(filter))
+export const getFiltered = async (filter: string) => {
+  return items.filter((item) =>
+    item.title.toLocaleLowerCase().includes(filter.toLocaleLowerCase())
   );
 };

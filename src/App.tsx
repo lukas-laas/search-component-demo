@@ -4,8 +4,12 @@ function App() {
   const [search, setSearch] = useState<string | null>(null);
   const [input, setInput] = useState("");
   const [results, setResults] = useState<any>(null);
+
   useEffect(() => {
-    getFiltered(search ? search : "", setResults);
+    getFiltered(search ? search : "").then((res) => {
+      console.log(res);
+      setResults(res);
+    });
   }, [search]);
 
   return (
@@ -22,7 +26,7 @@ function App() {
       </form>
       <ul>
         {results &&
-          results.map((result) => {
+          results.map((result: any) => {
             return (
               <li key={result.title}>
                 <h3>{result.title}</h3>
